@@ -164,6 +164,7 @@ func resourceIssueCreate(d *schema.ResourceData, m interface{}) error {
 		}
 	}
 	issue, res, err := config.jiraClient.Issue.Create(&i)
+	println(res)
 	if err != nil {
 		body, _ := ioutil.ReadAll(res.Body)
 		return errors.Wrapf(err, "creating jira issue failed: %s", body)
